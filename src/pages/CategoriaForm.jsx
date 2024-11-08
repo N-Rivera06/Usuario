@@ -1,11 +1,15 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
-import { createCategoria,deleteCategoria } from '../api/Categorias.api';
+import { createCategoria,deleteCategoria, getCategoria, updateCategoria } from '../api/Categorias.api';
+import { useEffect } from 'react';
 
 export function CategoriaForm(){
-  const  {register, handleSubmit, formState:{
-    errors
-  }}=useForm();
+  const  {register, handleSubmit, 
+    formState:{
+     errors
+    },
+    setValue,
+    }=useForm();
 
   const navigate = useNavigate();
   const params = useParams();
@@ -13,10 +17,32 @@ export function CategoriaForm(){
 
   const onSubmit = handleSubmit( async data => {
     console.log(data);
-    const res=await createCategoria(data);
-    console.log();
+    //agregar validación para saber si va a crear o actualizar una categoria
+    if(params.id){
+      console.log("Modificando...")
+      await updateCategoria(params.id, data)
+    } else {
+      const res=await createCategoria(data);
+      console.log(res);
+    }
+    navigate('/categoria');
   } )
-  
+
+
+  //para rellenar el formulario si hay un parametro en la url
+  useEffect(()=>{
+    async function loadCategoria(){
+        if (params.id){
+          console.log("Solicitar Datos")
+          const res= await getCategoria(params.id);
+          console.log(res);
+          setValue('nombre_categoria', res.data.nombre_categoria);
+          setValue('descripcion', res.data.descripcion);
+        }
+    }
+      loadCategoria();
+  },[]);
+
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -45,3 +71,4 @@ export function CategoriaForm(){
   )
  
 }
+
