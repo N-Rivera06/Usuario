@@ -1,0 +1,82 @@
+* {
+  margin: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+body {
+  background-color: #3a5a9e5b; 
+  color: #010101;          
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
+
+}
+
+/* Estilo para el contenedor de la barra de navegación */
+.navbar {
+  padding: 20px;
+  border-bottom: 2px solid #080808;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Enlaces en posiciones laterales */
+  align-items: center;
+}
+
+/* Estilo para el título principal */
+.navbar h1 {
+  font-size: 50px;
+  color: #000000;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-align: center;
+  width: 100%; 
+  margin: 0; 
+  padding-bottom: 10px;
+  border-bottom: 5px solid #000000; /* Línea inferior debajo del título */
+}
+
+
+/* Estilos para los enlaces de la barra de navegación */
+.navbar a {
+  display: inline-block;
+  text-decoration: none;
+  color: #080808;             
+  font-weight: bold;
+  margin: 0 15px;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
+
+}
+
+.section {
+  background-color: #F5E6CC;  
+  color: #000000;            
+  padding: 15px;
+  margin: 20px auto;
+  border-radius: 8px;
+  max-width: 800px;
+}
+
+/* Estilo para los títulos de cada sección */
+.section h2 {
+  color: #243a9e;           
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Estilos para el texto dentro de las secciones */
+.section p {
+  font-size: 20px;
+  color: #000000;            
+}
+
+/* Añadir espacio entre el título y los enlaces */
+.navbar h1 {
+  margin-bottom: 20px;
+  color: #000000;
+}
