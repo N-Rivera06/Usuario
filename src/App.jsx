@@ -44,21 +44,21 @@ function App() {
         <Route path="/register" element={<RegisterAndLogout />} />
 
        
-        <Route path="/categoria" element={ <ProtectedRoute> <CategoriaPagina /> </ProtectedRoute> }/>
-        <Route path="/categoria-add" element={ <ProtectedRoute> <CategoriaForm />  </ProtectedRoute> }/>
-        <Route path="/categoria/:id" element={ <ProtectedRoute> <CategoriaForm /> </ProtectedRoute> }/>
+        <Route path="/categoria" element=    { <ProtectedRoute> <CategoriaPagina /> </ProtectedRoute> }/>
+        <Route path="/categoria-add" element={ <ProtectedRoute> <CategoriaForm />  </ProtectedRoute>  }/>
+        <Route path="/categoria/:id" element={ <ProtectedRoute> <CategoriaForm /> </ProtectedRoute>   }/>
 
-        <Route path="/Gastos" element={ <ProtectedRoute> <GastosPagina /> </ProtectedRoute> }  />
-        <Route path="/Gastos-add" element={ <ProtectedRoute> <GastosForm /> </ProtectedRoute> } />
-        <Route path="/Gastos/:id" element={ <ProtectedRoute> <GastosForm /> </ProtectedRoute> } />
+        <Route path="/Gastos" element=    { <ProtectedRoute> <GastosPagina /> </ProtectedRoute> }  />
+        <Route path="/Gastos-add" element={ <ProtectedRoute> <GastosForm /> </ProtectedRoute>   }  />
+        <Route path="/Gastos/:id" element={ <ProtectedRoute> <GastosForm /> </ProtectedRoute>   }  />
 
-        <Route path="/Meta_Ahorro" element={ <ProtectedRoute>  <Meta_AhorroPagina /> </ProtectedRoute> } />
-        <Route path="/Meta_Ahorro-add"element={ <ProtectedRoute> <Meta_AhorroForm /> </ProtectedRoute> } />
-        <Route path="/Meta_Ahorro/:id"element={ <ProtectedRoute> <Meta_AhorroForm /> </ProtectedRoute> } />
+        <Route path="/Meta_Ahorro" element=   { <ProtectedRoute>  <Meta_AhorroPagina /> </ProtectedRoute> } />
+        <Route path="/Meta_Ahorro-add"element={ <ProtectedRoute>  <Meta_AhorroForm />   </ProtectedRoute> } />
+        <Route path="/Meta_Ahorro/:id"element={ <ProtectedRoute>  <Meta_AhorroForm />   </ProtectedRoute> } />
 
-        <Route path="/Proyeccion_Financiera" element={<ProtectedRoute> <Proyeccion_FinancieraPagina /> </ProtectedRoute>}/>
-        <Route path="/Proyeccion_Financiera-add" element={<ProtectedRoute> <Proyeccion_FinancieraForm /> </ProtectedRoute>}/>
-        <Route path="/Proyeccion_Financiera/:id" element={ <ProtectedRoute> <Proyeccion_FinancieraForm /> </ProtectedRoute> }/>
+        <Route path="/Proyeccion_Financiera" element=    { <ProtectedRoute> <Proyeccion_FinancieraPagina /> </ProtectedRoute>}/>
+        <Route path="/Proyeccion_Financiera-add" element={ <ProtectedRoute> <Proyeccion_FinancieraForm />   </ProtectedRoute>}/>
+        <Route path="/Proyeccion_Financiera/:id" element={ <ProtectedRoute> <Proyeccion_FinancieraForm />   </ProtectedRoute> }/>
 
         <Route path="*" element={<NoFound />} />
       </Routes>
