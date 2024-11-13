@@ -1,80 +1,70 @@
-import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
-// Importamos Bootstrap CSS
-//import 'bootstrap/dist/css/bootstrap.min.css';
-//import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-//importamos las páginas
+// Importamos las páginas
 import { Login } from "./pages/Login";
-import { Register} from "./pages/Register";
+import { Register } from "./pages/Register";
 import { Home } from "./pages/Home";
 import { NoFound } from "./pages/NoFound";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
 import { CategoriaPagina } from "./pages/CategoriaPagina";
-import { CategoriaForm }   from "./pages/CategoriaForm";
+import { CategoriaForm } from "./pages/CategoriaForm";
 
 import { GastosPagina } from "./pages/GastosPagina";
-import { GastosForm }   from "./pages/GastosForm";
+import { GastosForm } from "./pages/GastosForm";
 
 import { Meta_AhorroPagina } from "./pages/Meta_AhorroPagina";
-import { Meta_AhorroForm }   from "./pages/Meta_AhorroForm";
+import { Meta_AhorroForm } from "./pages/Meta_AhorroForm";
 
 import { Proyeccion_FinancieraPagina } from "./pages/Proyeccion_FinancieraPagina";
-import { Proyeccion_FinancieraForm }   from "./pages/Proyeccion_FinancieraForm";
+import { Proyeccion_FinancieraForm } from "./pages/Proyeccion_FinancieraForm";
 
+// Importamos el componente de navegación
+import { Navigation } from "./components/Navigation";
 
-
-
-//Importamos el componente 
-import { Navigation }      from "./components/Navigation";
-
-function Logout(){
+function Logout() {
   localStorage.clear();
-  return <Navigate to="/login" />
-}
-function RegisterAndLogout(){
-  localStorage.clear();
-  return <Register/>
+  return <Navigate to="/login" />;
 }
 
+function RegisterAndLogout() {
+  localStorage.clear();
+  return <Register />;
+}
 
-function App(){
+function App() {
   return (
     <BrowserRouter>
-    <Navigation/>
+      <Navigation />
 
-    <Routes>
-      <Route path="/"         element={<ProtectedRoute> <Home/> </ProtectedRoute>}/>
-      <Route path="/login"    element={<Login/> }/>
-      <Route path="/logout"   element={ <Logout/> }/>
-      <Route path="/register" element={ <RegisterAndLogout/> }/>
+      <Routes>
+        <Route path="/" element={ <ProtectedRoute> <Home /> </ProtectedRoute>}/>
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/register" element={<RegisterAndLogout />} />
 
+       
+        <Route path="/categoria" element={ <ProtectedRoute> <CategoriaPagina /> </ProtectedRoute> }/>
+        <Route path="/categoria-add" element={ <ProtectedRoute> <CategoriaForm />  </ProtectedRoute> }/>
+        <Route path="/categoria/:id" element={ <ProtectedRoute> <CategoriaForm /> </ProtectedRoute> }/>
 
-      <Route path="/categoria"     element={<CategoriaPagina/>}/>
-      <Route path="/categoria-add" element={<CategoriaForm/>}/>
-      <Route path="/categoria/:id" element={<CategoriaForm/>}/>
+        <Route path="/Gastos" element={ <ProtectedRoute> <GastosPagina /> </ProtectedRoute> }  />
+        <Route path="/Gastos-add" element={ <ProtectedRoute> <GastosForm /> </ProtectedRoute> } />
+        <Route path="/Gastos/:id" element={ <ProtectedRoute> <GastosForm /> </ProtectedRoute> } />
+
+        <Route path="/Meta_Ahorro" element={ <ProtectedRoute>  <Meta_AhorroPagina /> </ProtectedRoute> } />
+        <Route path="/Meta_Ahorro-add"element={ <ProtectedRoute> <Meta_AhorroForm /> </ProtectedRoute> } />
+        <Route path="/Meta_Ahorro/:id"element={ <ProtectedRoute> <Meta_AhorroForm /> </ProtectedRoute> } />
+
+        <Route path="/Proyeccion_Financiera" element={<ProtectedRoute> <Proyeccion_FinancieraPagina /> </ProtectedRoute>}/>
+        <Route path="/Proyeccion_Financiera-add" element={<ProtectedRoute> <Proyeccion_FinancieraForm /> </ProtectedRoute>}/>
+        <Route path="/Proyeccion_Financiera/:id" element={ <ProtectedRoute> <Proyeccion_FinancieraForm /> </ProtectedRoute> }/>
+
+        <Route path="*" element={<NoFound />} />
+      </Routes>
       
-     
-      <Route path="/Gastos"        element={<GastosPagina/>}/>
-      <Route path="/Gastos-add"    element={<GastosForm/>}/>
-      <Route path="/Gastos/:id"   element={<GastosForm/>}/>
-
-      
-      
-      <Route path="/Meta_Ahorro"     element={<Meta_AhorroPagina/>}/>
-      <Route path="/Meta_Ahorro-add" element={<Meta_AhorroForm/>}/>
-      <Route path="/Meta_Ahorro/:id" element={<Meta_AhorroForm/>}/>
-
-     
-      <Route path="/Proyeccion_Financiera"     element={<Proyeccion_FinancieraPagina/>}/>
-      <Route path="/Proyeccion_Financiera-add" element={<Proyeccion_FinancieraForm/>}/>
-      <Route path="/Proyeccion_Financiera/:id" element={<Proyeccion_FinancieraForm/>}/>
-
-
-      <Route path="*" element={<NoFound/>}/>
-
-    </Routes>
     </BrowserRouter>
-  )
+  );
 }
-export default App
+
+export default App;
