@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import { createCategoria,deleteCategoria, getCategoria, updateCategoria } from '../api/Categorias.api';
 import { useEffect } from 'react';
+import {toast}       from "react-hot-toast";
 
 export function CategoriaForm(){
   const  {register, handleSubmit, 
@@ -21,9 +22,26 @@ export function CategoriaForm(){
     if(params.id){
       console.log("Modificando...")
       await updateCategoria(params.id, data)
+      //para que salga las notificaciones en la página.
+      toast.success("Categoria editada con éxito", {
+        //position: "bottom-right",
+         style: {
+          background: "#101010",
+          color: "#fff",
+          }
+      });
+
     } else {
+
       const res=await createCategoria(data);
       console.log(res);
+      toast.success("Categoria creada con éxito", {
+        //position: "bottom-right",
+         style: {
+          background: "linear-gradient(to right, #ff9900, #ffcc00)",
+          }
+      });
+        
     }
     navigate('/categoria');
   } )
@@ -58,13 +76,19 @@ export function CategoriaForm(){
             const accepted= window.confirm("¿Desea eiminar la categoria?")
              if (accepted){
               await deleteCategoria(params.id);
+              toast.success("Categoria eliminada con éxito", {
+                position: "bottom-right",
+                style: {
+                  background: "#101010",
+                  color: "#fff",
+                }
+              });
               navigate('/categoria')
              }
           }}
         >
             Eliminar
         </button>)}
-
     </div>
 
   )
